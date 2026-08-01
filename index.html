@@ -1267,26 +1267,16 @@ const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw6iOynzYwGo37bZyCP
 
 function trackStart(){
 
-    fetch(WEB_APP_URL,{
+    document.getElementById("trackName").value = "Anonymous";
+    document.getElementById("trackEvent").value = "Started";
 
-        method:"POST",
+    document.getElementById("trackerForm").submit();
 
-        headers:{
-            "Content-Type":"application/json"
-        },
-
-        body:JSON.stringify({
-            name:"Anonymous",
-            event:"Started"
-        })
-
-    })
-    .then(response=>response.text())
-    .then(data=>console.log(data))
-    .catch(error=>console.error(error));
+    console.log("Started sent");
 
 }
 
+  
 function trackNext(){
 
 console.log("Next");
@@ -1752,6 +1742,17 @@ ripple.remove();
 });
 
 </script>
+<form id="trackerForm"
+      action="https://script.google.com/macros/s/AKfycbw6iOynzYwGo37bZyCP72U_ENS56kEFL2tGRxgkZqfeGl1q5MMljWEzdU2ToywzuI6dLw/exec"
+      method="POST"
+      target="hiddenFrame"
+      style="display:none;">
 
+    <input type="hidden" name="name" id="trackName">
+    <input type="hidden" name="event" id="trackEvent">
+
+</form>
+
+<iframe name="hiddenFrame" style="display:none;"></iframe>
 </body>
 </html>
