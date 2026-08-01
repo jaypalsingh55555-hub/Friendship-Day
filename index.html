@@ -1,0 +1,1757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Friendship Day ❤️</title>
+
+<style>
+
+/* ======================================
+      RESET
+====================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,body{
+
+height:100%;
+font-family:
+'Segoe UI',
+Tahoma,
+Geneva,
+Verdana,
+sans-serif;
+
+overflow:hidden;
+
+color:white;
+
+}
+
+/* ======================================
+      BEAUTIFUL BACKGROUND
+====================================== */
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#5B86E5,
+#36D1DC,
+#6A11CB,
+#2575FC);
+
+background-size:400% 400%;
+
+animation:
+gradientMove 18s ease infinite;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+position:relative;
+
+}
+
+/* Animated Gradient */
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* ======================================
+      FLOATING PARTICLES
+====================================== */
+
+.particle{
+
+position:absolute;
+
+border-radius:50%;
+
+opacity:.25;
+
+animation:
+floatParticle linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes floatParticle{
+
+from{
+
+transform:
+translateY(110vh)
+translateX(0)
+rotate(0deg);
+
+}
+
+to{
+
+transform:
+translateY(-120vh)
+translateX(80px)
+rotate(360deg);
+
+}
+
+}
+
+/* ======================================
+      MAIN CONTAINER
+====================================== */
+
+.container{
+
+width:100%;
+max-width:850px;
+
+padding:25px;
+
+position:relative;
+
+z-index:10;
+
+}
+
+/* ======================================
+      GLASS CARD
+====================================== */
+
+.card{
+
+background:
+rgba(255,255,255,.15);
+
+backdrop-filter:blur(18px);
+
+border:1px solid
+rgba(255,255,255,.25);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.18);
+
+border-radius:25px;
+
+padding:45px;
+
+min-height:520px;
+
+display:none;
+
+flex-direction:column;
+
+justify-content:center;
+align-items:center;
+
+text-align:center;
+
+animation:
+fadeIn .8s ease;
+
+}
+
+.card.active{
+
+display:flex;
+
+}
+
+/* ======================================
+      FADE ANIMATION
+====================================== */
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+
+/* ======================================
+      HEADINGS
+====================================== */
+
+h1{
+
+font-size:3rem;
+
+margin-bottom:20px;
+
+font-weight:700;
+
+}
+
+h2{
+
+font-size:2rem;
+
+margin-bottom:20px;
+
+}
+
+p{
+
+font-size:1.2rem;
+
+line-height:1.8;
+
+max-width:700px;
+
+opacity:.95;
+
+}
+
+/* ======================================
+      BUTTONS
+====================================== */
+
+button{
+
+margin-top:35px;
+
+padding:16px 38px;
+
+position:relative;
+
+overflow:hidden;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:1rem;
+
+font-weight:700;
+
+transition:.35s;
+
+background:white;
+
+color:#2575FC;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.18);
+
+}
+
+button:hover{
+
+transform:
+translateY(-5px)
+scale(1.05);
+
+}
+
+button:active{
+
+transform:
+scale(.96);
+
+}
+
+/* ======================================
+      NAVIGATION
+====================================== */
+
+.nav{
+
+display:flex;
+
+justify-content:space-between;
+
+width:100%;
+
+margin-top:40px;
+
+}
+
+.back-btn{
+
+background:rgba(255,255,255,.22);
+
+color:white;
+
+}
+
+/* ======================================
+      PROGRESS BAR
+====================================== */
+
+.progress{
+
+position:absolute;
+
+top:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:80%;
+
+height:12px;
+
+background:
+rgba(255,255,255,.2);
+
+border-radius:20px;
+
+overflow:hidden;
+
+backdrop-filter:blur(10px);
+
+}
+
+.progress-fill{
+
+height:100%;
+
+width:0%;
+
+background:
+linear-gradient(
+90deg,
+#FFD200,
+#FF6B6B);
+
+transition:.5s;
+
+}
+
+/* ======================================
+      INTERACTIVE CARDS
+====================================== */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+
+gap:20px;
+
+margin-top:40px;
+
+width:100%;
+
+}
+
+.smallCard{
+
+padding:25px;
+
+border-radius:18px;
+
+cursor:pointer;
+
+background:
+rgba(255,255,255,.15);
+
+transition:.35s;
+
+border:1px solid
+rgba(255,255,255,.2);
+
+}
+
+.smallCard:hover{
+
+transform:
+translateY(-8px);
+
+background:
+rgba(255,255,255,.25);
+
+}
+
+.hiddenMessage{
+
+margin-top:18px;
+
+display:none;
+
+font-size:1rem;
+
+}
+
+/* ======================================
+      REACTION BUTTONS
+====================================== */
+.reaction{
+
+min-width:220px;
+
+font-size:1.05rem;
+
+transition:.35s;
+
+}
+
+.reaction:hover{
+
+transform:
+translateY(-6px)
+scale(1.05);
+
+}
+
+#finishBtn{
+
+animation:
+pulse 1.2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+.reactions{
+
+display:flex;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:20px;
+
+margin-top:40px;
+
+}
+
+.reaction{
+
+font-size:1rem;
+
+}
+
+/* ======================================
+      RESPONSE
+====================================== */
+
+#reactionResponse{
+
+margin-top:30px;
+
+font-size:1.25rem;
+
+font-weight:bold;
+
+min-height:40px;
+
+}
+
+/* ======================================
+      CONFETTI
+====================================== */
+
+.confetti{
+
+position:absolute;
+
+width:10px;
+height:16px;
+
+opacity:.9;
+
+animation:
+confettiFall linear forwards;
+
+}
+
+@keyframes confettiFall{
+
+0%{
+
+transform:
+translateY(-10vh)
+rotate(0deg);
+
+}
+
+100%{
+
+transform:
+translateY(110vh)
+rotate(720deg);
+
+}
+
+}
+/* ======================================
+      SURPRISE SCREEN
+====================================== */
+
+.revealTitle{
+
+font-size:3.2rem;
+
+animation:
+popReveal
+1.2s ease;
+
+text-shadow:
+0 8px 25px rgba(0,0,0,.2);
+
+}
+
+.revealText{
+
+margin-top:30px;
+
+font-size:1.2rem;
+
+line-height:2;
+
+animation:
+fadeIn 2s;
+
+}
+
+@keyframes popReveal{
+
+0%{
+
+transform:
+scale(.2)
+rotate(-15deg);
+
+opacity:0;
+
+}
+
+60%{
+
+transform:
+scale(1.2);
+
+}
+
+100%{
+
+transform:
+scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* Confetti Pieces */
+
+.confetti{
+
+position:absolute;
+
+width:12px;
+
+height:18px;
+
+top:-30px;
+
+opacity:.95;
+
+pointer-events:none;
+
+animation:
+confettiDrop linear forwards;
+
+}
+
+@keyframes confettiDrop{
+
+0%{
+
+transform:
+translateY(-50px)
+rotate(0deg);
+
+}
+
+100%{
+
+transform:
+translateY(110vh)
+rotate(720deg);
+
+}
+
+}
+
+/* ======================================
+      MOBILE
+====================================== */
+
+/* ======================================
+      SPARKLES
+====================================== */
+
+.sparkle{
+
+position:absolute;
+
+width:8px;
+
+height:8px;
+
+background:white;
+
+border-radius:50%;
+
+opacity:.8;
+
+pointer-events:none;
+
+animation:
+sparkle 4s linear infinite;
+
+box-shadow:
+0 0 10px white;
+
+}
+
+@keyframes sparkle{
+
+0%{
+
+transform:
+translateY(100vh)
+scale(.3);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:1;
+
+}
+
+80%{
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-120vh)
+scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+/* ======================================
+      BALLOONS
+====================================== */
+
+.balloon{
+
+position:absolute;
+
+bottom:-150px;
+
+font-size:42px;
+
+pointer-events:none;
+
+animation:
+balloonFloat linear infinite;
+
+}
+
+@keyframes balloonFloat{
+
+0%{
+
+transform:
+translateY(0)
+rotate(-4deg);
+
+}
+
+50%{
+
+transform:
+rotate(4deg);
+
+}
+
+100%{
+
+transform:
+translateY(-130vh)
+rotate(-4deg);
+
+}
+
+}
+
+/* ======================================
+      BACKGROUND GLOW
+====================================== */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+
+height:500px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,255,255,.18),
+
+transparent 70%
+
+);
+
+top:-200px;
+
+left:-150px;
+
+filter:blur(20px);
+
+animation:
+
+glowMove 10s ease-in-out infinite alternate;
+
+pointer-events:none;
+
+}
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+
+height:450px;
+
+background:
+
+radial-gradient(
+
+circle,
+
+rgba(255,255,255,.14),
+
+transparent 70%
+
+);
+
+bottom:-180px;
+
+right:-150px;
+
+filter:blur(20px);
+
+animation:
+
+glowMove2 12s ease-in-out infinite alternate;
+
+pointer-events:none;
+
+}
+
+@keyframes glowMove{
+
+to{
+
+transform:
+
+translate(120px,80px);
+
+}
+
+}
+
+@keyframes glowMove2{
+
+to{
+
+transform:
+
+translate(-100px,-80px);
+
+}
+
+}
+@media(max-width:768px){
+
+.card{
+
+padding:30px 20px;
+
+min-height:470px;
+
+}
+
+h1{
+
+font-size:2.2rem;
+
+}
+
+h2{
+
+font-size:1.6rem;
+
+}
+
+p{
+
+font-size:1rem;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+.nav{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Particles -->
+
+<div id="particles"></div>
+
+<div id="sparkles"></div>
+
+<div id="balloons"></div>
+
+<!-- Progress -->
+
+<div class="progress">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
+<div class="container">
+
+<!-- ========= Screen 1 ========= -->
+
+<section class="card active" id="screen1">
+
+<h1>Hey! 👋</h1>
+
+<p>
+There's something special waiting for you...
+</p>
+
+<button onclick="startSurprise()">
+✨ Start the Surprise
+</button>
+
+</section>
+
+<!-- ========= Screen 2 ========= -->
+
+<section class="card" id="screen2">
+
+<h2>Friendship</h2>
+
+<p>
+Some people come into our lives and make ordinary moments feel special.
+Some friendships don't need a reason.
+They simply become a beautiful part of our story.
+</p>
+
+<div class="nav">
+
+<button class="back-btn" onclick="previousScreen()">
+← Back
+</button>
+
+<button onclick="nextScreen()">
+Next →
+</button>
+</div>
+
+</section>
+
+<!-- ========= Screen 3 ========= -->
+
+<section class="card" id="screen3">
+
+<h2>For You 💙</h2>
+
+<p id="typingText"></p>
+
+<div class="nav">
+
+<button class="back-btn" onclick="previousScreen()">
+← Back
+</button>
+
+<button onclick="nextScreen()">
+Next →
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ========= Screen 4 ========= -->
+
+<section class="card" id="screen4">
+
+<h2>Our Friendship Journey 🫶</h2>
+
+<p>
+Tap every card to reveal a little surprise.
+</p>
+
+<div class="grid">
+
+<div class="smallCard" onclick="openCard(this,0)">
+💬
+<h3>A Little Reminder</h3>
+
+<div class="hiddenMessage">
+You're stronger than you think, and I'll always cheer for you.
+</div>
+
+</div>
+
+<div class="smallCard" onclick="openCard(this,1)">
+😂
+<h3>The Fun Part</h3>
+
+<div class="hiddenMessage">
+Life would be much more boring without our random conversations.
+</div>
+
+</div>
+
+<div class="smallCard" onclick="openCard(this,2)">
+🫶
+<h3>Why You're Special</h3>
+
+<div class="hiddenMessage">
+You make people feel comfortable just by being yourself.
+</div>
+
+</div>
+
+<div class="smallCard" onclick="openCard(this,3)">
+🌟
+<h3>One More Thing</h3>
+
+<div class="hiddenMessage">
+Thank you for being one of the best parts of my journey.
+</div>
+
+</div>
+
+</div>
+
+<p
+id="continueMessage"
+style="display:none;margin-top:30px;font-weight:bold;">
+
+Okay... now for the real surprise 👀
+
+</p>
+
+<div class="nav">
+
+<button class="back-btn" onclick="previousScreen()">
+← Back
+</button>
+
+<button
+id="continueBtn"
+onclick="nextScreen()"
+style="display:none;">
+Continue →
+</button>
+
+</div>
+
+</section>
+
+<!-- ========= Screen 5 ========= -->
+
+<section class="card" id="screen5">
+
+<h1 class="revealTitle">
+Happy Friendship Day! 🫶🎉
+</h1>
+
+<p class="revealText">
+
+Life is better with friends like you.
+
+<br><br>
+
+Thank you for being a part of my journey.
+
+<br><br>
+
+Here's to more laughter,
+more memories,
+more crazy moments,
+
+and a friendship that keeps getting stronger.
+
+💙
+
+</p>
+
+<div class="nav">
+
+<button
+class="back-btn"
+onclick="previousScreen()">
+
+← Back
+
+</button>
+
+<button
+onclick="nextScreen()">
+
+Next →
+
+</button>
+
+</div>
+
+</section>
+<!-- ========= Screen 6 ========= -->
+
+<section class="card" id="screen6">
+
+<h2>So... how did you like your little surprise? 🥹</h2>
+
+<div class="reactions">
+
+<button class="reaction" onclick="selectReaction('love')">
+❤️ Loved It
+</button>
+
+<button class="reaction" onclick="selectReaction('sweet')">
+🥹 That Was Sweet
+</button>
+
+<button class="reaction" onclick="selectReaction('smile')">
+😂 You Made Me Smile
+</button>
+
+</div>
+
+<div id="reactionResponse"></div>
+
+<div class="nav">
+
+<button class="back-btn" onclick="previousScreen()">
+← Back
+</button>
+
+<button id="finishBtn"
+style="display:none"
+onclick="nextScreen()">
+Finish →
+</button>
+
+</div>
+
+</section>
+
+<!-- ========= Screen 7 ========= -->
+
+<section class="card" id="screen7">
+
+<h1>
+Happy Friendship Day once again! 🫶
+</h1>
+
+<p>
+
+Here's to our friendship,
+
+<br><br>
+
+today,
+
+tomorrow,
+
+and all the crazy days ahead.
+
+💙
+
+</p>
+<p
+style="
+margin-top:40px;
+font-size:.95rem;
+opacity:.8;
+">
+
+Made with ❤️ especially for you.
+
+</p>
+
+<button onclick="replaySurprise()">
+✨ Replay the Surprise
+
+</button>
+
+</section>
+
+</div>
+
+<script>
+
+/***************************************************
+      VARIABLES
+****************************************************/
+
+let currentScreen = 1;
+let confettiPlayed = false;
+
+const totalScreens = 7;
+
+/***************************************************
+      PARTICLES
+****************************************************/
+
+function createParticles(){
+
+const container =
+document.getElementById("particles");
+
+for(let i=0;i<40;i++){
+
+const p =
+document.createElement("div");
+
+p.className="particle";
+
+const size =
+Math.random()*12+6;
+
+p.style.width=size+"px";
+p.style.height=size+"px";
+
+p.style.left=
+Math.random()*100+"vw";
+
+p.style.animationDuration=
+10+Math.random()*15+"s";
+
+p.style.animationDelay=
+Math.random()*10+"s";
+
+p.style.background=
+`hsla(${Math.random()*360},80%,80%,.6)`;
+
+container.appendChild(p);
+
+}
+
+}
+
+createParticles();
+
+/***************************************************
+Progress
+****************************************************/
+
+function updateProgress(){
+
+const percent =
+((currentScreen-1)/(totalScreens-1))*100;
+
+document.getElementById("progressFill")
+.style.width=
+percent+"%";
+
+}
+
+/***************************************************
+Placeholder Functions
+****************************************************/
+
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw6iOynzYwGo37bZyCP72U_ENS56kEFL2tGRxgkZqfeGl1q5MMljWEzdU2ToywzuI6dLw/exec";
+
+function trackStart(){
+
+    fetch(WEB_APP_URL,{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            name:"Anonymous",
+            event:"Started"
+        })
+
+    })
+    .then(response=>response.text())
+    .then(data=>console.log(data))
+    .catch(error=>console.error(error));
+
+}
+
+function trackNext(){
+
+console.log("Next");
+
+}
+
+function trackCardClick(card){
+
+console.log(card);
+
+}
+
+function trackReaction(type){
+
+console.log(type);
+
+}
+
+/***************************************************
+START
+****************************************************/
+
+/* ---------------------------
+   SCREEN NAVIGATION
+----------------------------*/
+
+function showScreen(number){
+
+    const cards =
+    document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        card.style.opacity="0";
+        card.style.transform="translateY(25px)";
+
+        setTimeout(()=>{
+
+            card.classList.remove("active");
+
+        },250);
+
+    });
+
+    setTimeout(()=>{
+
+        const current=
+        document.getElementById("screen"+number);
+
+        current.classList.add("active");
+
+        current.style.opacity="0";
+        current.style.transform="translateY(25px)";
+
+        requestAnimationFrame(()=>{
+
+            current.style.transition=
+            ".6s";
+
+            current.style.opacity="1";
+
+            current.style.transform=
+            "translateY(0)";
+
+        });
+
+        currentScreen=number;
+
+        updateProgress();
+
+        if(number===3){
+
+            startTyping();
+
+        }
+
+    },250);
+
+}
+
+
+function startSurprise(){
+
+trackStart();
+
+showScreen(2);
+
+}
+
+function nextScreen(){
+
+trackNext();
+
+showScreen(currentScreen+1);
+
+}
+
+function previousScreen(){
+
+showScreen(currentScreen-1);
+
+}
+
+/* ---------------------------
+Typing Animation
+----------------------------*/
+
+const message=
+
+"Thank you for being the kind of friend who makes the good days better, the bad days easier, and even the random moments unforgettable.";
+
+let typingStarted=false;
+
+function startTyping(){
+
+if(typingStarted) return;
+
+typingStarted=true;
+
+const element=
+document.getElementById("typingText");
+
+let i=0;
+
+const timer=setInterval(()=>{
+
+element.textContent+=message[i];
+
+i++;
+
+if(i>=message.length){
+
+clearInterval(timer);
+
+}
+
+},30);
+
+}
+
+/* ---------------------------
+Interactive Cards
+----------------------------*/
+
+let opened=0;
+
+function openCard(card,index){
+
+const hidden=
+card.querySelector(".hiddenMessage");
+
+if(hidden.style.display==="block")
+return;
+
+hidden.style.display="block";
+
+hidden.style.animation="fadeIn .6s";
+
+opened++;
+
+trackCardClick(index);
+
+if(opened===4){
+
+document.getElementById(
+"continueMessage"
+).style.display="block";
+
+document.getElementById(
+"continueBtn"
+).style.display="inline-block";
+
+}
+
+}
+
+updateProgress();
+/* ---------------------------
+Confetti Animation
+----------------------------*/
+
+function launchConfetti(){
+
+const colors=[
+"#ff6b6b",
+"#ffd93d",
+"#6bcBef",
+"#4ecdc4",
+"#ffffff",
+"#c77dff"
+];
+
+for(let i=0;i<250;i++){
+
+const piece=
+document.createElement("div");
+
+piece.className="confetti";
+
+piece.style.left=
+Math.random()*100+"vw";
+
+piece.style.width=
+(6+Math.random()*10)+"px";
+
+piece.style.height=
+(8+Math.random()*12)+"px";
+
+piece.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+piece.style.animationDuration=
+(2+Math.random()*4)+"s";
+
+piece.style.opacity=
+0.5+Math.random();
+
+piece.style.transform=
+`rotate(${Math.random()*360}deg)`;
+
+document.body.appendChild(piece);
+
+setTimeout(()=>{
+
+piece.remove();
+
+},6000);
+
+}
+
+}
+/* ---------------------------
+Upgrade showScreen()
+----------------------------*/
+
+const oldShowScreen = showScreen;
+
+showScreen = function(number){
+
+    oldShowScreen(number);
+
+    if(number===5 && !confettiPlayed){
+
+        confettiPlayed=true;
+
+        launchConfetti();
+
+    }
+
+}
+/* ---------------------------
+Reaction Messages
+----------------------------*/
+
+function selectReaction(type){
+
+trackReaction(type);
+
+const response =
+document.getElementById(
+"reactionResponse"
+);
+
+const finish =
+document.getElementById(
+"finishBtn"
+);
+
+if(type==="love"){
+
+response.innerHTML=
+"❤️ Your smile was the only response I needed.";
+
+}
+
+if(type==="sweet"){
+
+response.innerHTML=
+"🥹 I'm really happy you liked it.";
+
+}
+
+if(type==="smile"){
+
+response.innerHTML=
+"😂 Mission accomplished! Keep smiling.";
+
+}
+
+finish.style.display="inline-block";
+
+}
+
+/* ---------------------------
+Replay
+----------------------------*/
+
+function replaySurprise(){
+
+typingStarted=false;
+confettiPlayed=false;
+
+opened=0;
+
+document.getElementById(
+"typingText"
+).textContent="";
+
+document
+.querySelectorAll(".hiddenMessage")
+.forEach(el=>{
+
+el.style.display="none";
+
+});
+
+document.getElementById(
+"continueBtn"
+).style.display="none";
+
+document.getElementById(
+"continueMessage"
+).style.display="none";
+
+document.getElementById(
+"reactionResponse"
+).innerHTML="";
+
+document.getElementById(
+"finishBtn"
+).style.display="none";
+
+showScreen(1);
+
+}
+/* ==========================================
+      SPARKLES
+========================================== */
+
+function createSparkles(){
+
+const container=
+document.getElementById("sparkles");
+
+for(let i=0;i<35;i++){
+
+const s=
+document.createElement("div");
+
+s.className="sparkle";
+
+s.style.left=
+Math.random()*100+"vw";
+
+s.style.animationDuration=
+3+Math.random()*5+"s";
+
+s.style.animationDelay=
+Math.random()*5+"s";
+
+container.appendChild(s);
+
+}
+
+}
+
+createSparkles();
+
+/* ==========================================
+      BALLOONS
+========================================== */
+
+function createBalloons(){
+
+const holder=
+document.getElementById("balloons");
+
+const emojis=["🎈","🎉","💙","⭐"];
+
+for(let i=0;i<10;i++){
+
+const b=
+document.createElement("div");
+
+b.className="balloon";
+
+b.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
+
+b.style.left=
+Math.random()*100+"vw";
+
+b.style.animationDuration=
+12+Math.random()*10+"s";
+
+b.style.animationDelay=
+Math.random()*10+"s";
+
+holder.appendChild(b);
+
+}
+
+}
+
+createBalloons();
+
+/* ==========================================
+      BUTTON RIPPLE
+========================================== */
+
+document
+.querySelectorAll("button")
+.forEach(button=>{
+
+button.addEventListener("click",function(e){
+
+const ripple=
+document.createElement("span");
+
+const size=
+Math.max(
+this.clientWidth,
+this.clientHeight
+);
+
+ripple.style.width=size+"px";
+ripple.style.height=size+"px";
+
+ripple.style.position="absolute";
+
+ripple.style.borderRadius="50%";
+
+ripple.style.background="rgba(255,255,255,.5)";
+
+ripple.style.left=
+(e.offsetX-size/2)+"px";
+
+ripple.style.top=
+(e.offsetY-size/2)+"px";
+
+ripple.style.transform="scale(0)";
+
+ripple.style.transition=".6s";
+
+this.appendChild(ripple);
+
+requestAnimationFrame(()=>{
+
+ripple.style.transform="scale(4)";
+
+ripple.style.opacity="0";
+
+});
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
