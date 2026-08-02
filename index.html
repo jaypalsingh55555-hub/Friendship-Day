@@ -8,6 +8,115 @@
 
 <style>
 
+.upload-card{
+
+
+margin:25px auto;
+
+padding:30px;
+
+border-radius:25px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(10px);
+
+border:2px dashed rgba(255,255,255,.5);
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+#screen5{
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45));
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+}
+
+#screen5::before{
+
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+
+}
+
+#screen5 h1,
+#screen5 p,
+#screen5 .nav{
+
+    position:relative;
+    z-index:2;
+
+}
+
+.upload-card:hover{
+
+transform:translateY(-5px);
+
+background:rgba(255,255,255,.18);
+
+}
+
+.upload-icon{
+
+font-size:60px;
+
+margin-bottom:15px;
+
+}
+
+.preview-photo{
+
+display:none;
+
+width:220px;
+
+height:220px;
+
+margin:25px auto;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:5px solid white;
+
+box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+animation:zoomPhoto .8s;
+
+}
+
+@keyframes zoomPhoto{
+
+from{
+
+transform:scale(.3);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
 /* ======================================
       RESET
 ====================================== */
@@ -28,7 +137,8 @@ Geneva,
 Verdana,
 sans-serif;
 
-overflow:hidden;
+overflow-x:hidden;
+overflow-y:auto;
 
 color:white;
 
@@ -852,6 +962,74 @@ translate(-100px,-80px);
 }
 
 }
+
+.popup{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+display:none;
+
+justify-content:center;
+align-items:center;
+
+background:rgba(0,0,0,.45);
+
+backdrop-filter:blur(10px);
+
+z-index:999;
+
+}
+
+.popup-box{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(20px);
+
+padding:40px;
+
+border-radius:25px;
+
+width:90%;
+max-width:420px;
+
+text-align:center;
+
+}
+
+.popup-box input{
+
+margin-top:25px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:1rem;
+
+text-align:center;
+
+outline:none;
+
+margin-bottom:20px;
+
+}
+
+/* ===========================
+      MUSIC BUTTON
+=========================== */
+
+
 @media(max-width:768px){
 
 .card{
@@ -914,9 +1092,29 @@ gap:15px;
 <div class="progress">
 <div class="progress-fill" id="progressFill"></div>
 </div>
-
 <div class="container">
+<div id="namePopup" class="popup">
 
+<div class="popup-box">
+
+<h2>Before we continue... 😊</h2>
+
+<p>
+I'd love to know who's about to experience this little surprise.
+</p>
+
+<input
+type="text"
+id="friendName"
+placeholder="What Should I Call You..."
+maxlength="30">
+
+<button onclick="saveName()">
+Continue →
+</button>
+</div>
+
+</div>
 <!-- ========= Screen 1 ========= -->
 
 <section class="card active" id="screen1">
@@ -924,7 +1122,10 @@ gap:15px;
 <h1>Hey! 👋</h1>
 
 <p>
-There's something special waiting for you...
+I made a little something for you.
+<br><br>
+It won't take long...
+but I hope it leaves a smile on your face. 😊
 </p>
 
 <button onclick="startSurprise()">
@@ -934,16 +1135,35 @@ There's something special waiting for you...
 </section>
 
 <!-- ========= Screen 2 ========= -->
+<!-- ========= Screen 2 ========= -->
 
 <section class="card" id="screen2">
 
-<h2>Friendship</h2>
+<h2 id="welcomeName">Hey! 👋</h2>
 
 <p>
-Some people come into our lives and make ordinary moments feel special.
-Some friendships don't need a reason.
-They simply become a beautiful part of our story.
+
+Some people come into our lives...
+
 </p>
+
+<h3>📸 One More Thing!</h3>
+
+<p>Upload a photo to continue 😊</p>
+
+<div class="upload-card" onclick="document.getElementById('photoUpload').click()">
+
+    <div class="upload-icon">📸</div>
+
+    <h3>Upload Your Photo</h3>
+
+    <p>Click here to choose your favourite picture</p>
+
+</div>
+
+<input type="file" id="photoUpload" accept="image/*" hidden>
+
+<img id="previewImage" class="preview-photo">
 
 <div class="nav">
 
@@ -954,13 +1174,23 @@ They simply become a beautiful part of our story.
 <button onclick="nextScreen()">
 Next →
 </button>
+
 </div>
 
 </section>
-
 <!-- ========= Screen 3 ========= -->
 
+
 <section class="card" id="screen3">
+
+<img id="friendPhoto"
+     style="display:none;
+            width:220px;
+            height:220px;
+            object-fit:cover;
+            border-radius:25px;
+            margin:20px auto;
+            box-shadow:0 10px 30px rgba(0,0,0,.4);">
 
 <h2>For You 💙</h2>
 
@@ -1064,9 +1294,7 @@ Continue →
 
 <section class="card" id="screen5">
 
-<h1 class="revealTitle">
-Happy Friendship Day! 🫶🎉
-</h1>
+<h1>Happy Friendship Day! 🫶🎉</h1>
 
 <p class="revealText">
 
@@ -1267,16 +1495,35 @@ const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbw6iOynzYwGo37bZyCP
 
 function trackStart(){
 
-    document.getElementById("trackName").value = "Anonymous";
-    document.getElementById("trackEvent").value = "Started";
-
-    document.getElementById("trackerForm").submit();
-
-    console.log("Started sent");
+    sendEvent("Started");
 
 }
 
-  
+function sendEvent(eventName){
+
+    fetch("https://script.google.com/macros/s/AKfycbw6iOynzYwGo37bZyCP72U_ENS56kEFL2tGRxgkZqfeGl1q5MMljWEzdU2ToywzuI6dLw/exec",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            name: friendName,
+
+            event: eventName
+
+        })
+
+    })
+    .then(response => response.text())
+    .then(data => console.log("Server:", data))
+    .catch(error => console.error(error));
+
+}
+
 function trackNext(){
 
 console.log("Next");
@@ -1294,6 +1541,7 @@ function trackReaction(type){
 console.log(type);
 
 }
+
 
 /***************************************************
 START
@@ -1359,34 +1607,94 @@ function showScreen(number){
 
 
 function startSurprise(){
+    const savedName = localStorage.getItem("friendName");
 
-trackStart();
+    if(savedName){
 
-showScreen(2);
+        friendName = savedName;
+
+        trackStart();
+
+        document.getElementById("welcomeName").innerHTML =
+        "Hey " + friendName + "! 👋";
+
+        showScreen(2);
+
+    }else{
+
+        document.getElementById("namePopup").style.display = "flex";
+
+    }
 
 }
 
+let friendName = "";
+
+function saveName(){
+
+    friendName = document.getElementById("friendName").value.trim();
+ 
+
+    const nameRegex = /^[A-Za-z ]{2,30}$/;
+
+    if (!nameRegex.test(friendName)) {
+
+        alert("Please enter your real first name 😊");
+
+        return;
+
+    }
+
+    document.getElementById("namePopup").style.display = "none";
+    localStorage.setItem("friendName", friendName);
+
+    trackStart();
+
+    document.getElementById("welcomeName").innerHTML =
+    "Hey " + friendName + "! 👋";
+
+    showScreen(2);
+
+}
 function nextScreen(){
 
-trackNext();
+    trackNext();
 
-showScreen(currentScreen+1);
+    // Going from Screen 4 to Screen 5
+    if(currentScreen === 4 && uploadedPhoto){
+
+        document.getElementById("screen5").style.background =
+`linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)), url(${uploadedPhoto}) center/cover no-repeat`;
+
+    }
+
+    
+    if(currentScreen === 6){
+
+        document.getElementById("trackName").value = friendName;
+
+        document.getElementById("trackEvent").value = "Finished";
+
+        document.getElementById("trackerForm").submit();
+
+    }
+
+    showScreen(currentScreen+1);
 
 }
 
 function previousScreen(){
 
-showScreen(currentScreen-1);
+    showScreen(currentScreen-1);
 
 }
-
 /* ---------------------------
 Typing Animation
 ----------------------------*/
 
 const message=
 
-"Thank you for being the kind of friend who makes the good days better, the bad days easier, and even the random moments unforgettable.";
+"...\n\nThank you for being the kind of friend who makes the good days better, the bad days easier, and even the random moments unforgettable.";
 
 let typingStarted=false;
 
@@ -1424,7 +1732,7 @@ Interactive Cards
 let opened=0;
 
 function openCard(card,index){
-
+sendEvent("Opened Card " + (index + 1));
 const hidden=
 card.querySelector(".hiddenMessage");
 
@@ -1532,7 +1840,11 @@ Reaction Messages
 ----------------------------*/
 
 function selectReaction(type){
-
+sendReaction(type);
+document.getElementById("trackName").value = friendName;
+document.getElementById("trackEvent").value = "Reaction: " + type;
+document.getElementById("trackerForm").submit();
+sendEvent("Reaction: " + type);
 trackReaction(type);
 
 const response =
@@ -1575,7 +1887,7 @@ Replay
 ----------------------------*/
 
 function replaySurprise(){
-
+sendEvent("Replay");
 typingStarted=false;
 confettiPlayed=false;
 
@@ -1738,6 +2050,59 @@ ripple.remove();
 },600);
 
 });
+
+});
+
+
+function sendReaction(type){
+
+    fetch("https://script.google.com/macros/s/AKfycbw6iOynzYwGo37bZyCP72U_ENS56kEFL2tGRxgkZqfeGl1q5MMljWEzdU2ToywzuI6dLw/exec",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            name: friendName,
+
+            event: "Reaction: " + type
+
+        })
+
+    })
+    .then(response => response.text())
+    .then(data => console.log("Reaction saved:", data))
+    .catch(error => console.error(error));
+
+}
+let uploadedPhoto = "";
+
+document.getElementById("photoUpload").addEventListener("change", function(event){
+
+    const file = event.target.files[0];
+
+    if(!file) return;
+
+    const reader = new FileReader();
+
+    reader.onload = function(e){
+
+        uploadedPhoto = e.target.result;
+
+        const preview = document.getElementById("previewImage");
+
+        preview.src = uploadedPhoto;
+
+        preview.style.display = "block";
+
+        document.querySelector(".upload-card").style.display = "none";
+
+    };
+
+    reader.readAsDataURL(file);
 
 });
 
